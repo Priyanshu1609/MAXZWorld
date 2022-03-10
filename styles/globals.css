@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* overflow: hidden; Hide scrollbars */
+}
+
+@font-face {
+  font-family: "Galvji";
+  src: url("/fonts/Galvji/Galvji.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Galvji";
+  src: url("/fonts/fonts/Galvji/Galvji-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
