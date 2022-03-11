@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-2">
             <div className="flex">
-            <img
+              <img
                 onClick={handleClickHome}
                 src="/logotextblack.png"
                 className="w-10 h-10 text-yellow-600 "
@@ -51,7 +51,7 @@ const Navbar = () => {
 
             {/* Auth Buttons */}
             <div className="hidden sm:flex sm:items-center space-x-2">
-              {isAuthenticated ? (
+              {isAuthenticated && (
                 <>
                   <AuthButton
                     onClick={handleClickAdmin}
@@ -61,14 +61,6 @@ const Navbar = () => {
                     text="Sign out"
                     onClick={handleClickSignOut}
                     disabled={isLoggingOut}
-                  />
-                </>
-              ) : (
-                <>
-                  <AuthButton
-                    text="Connect Wallet"
-                    onClick={handleClickSignin}
-                    disabled={isAuthenticating}
                   />
                 </>
               )}

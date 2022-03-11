@@ -42,6 +42,14 @@ export default function Login() {
       <div className="flex  rounded-lg shadow-lg overflow-hidden mx-auto max-w-4xl ">
         {/* <img className="hidden lg:block lg:w-1/2 bg-cover" src="" /> */}
         <div className="w-full p-8 max-w-xl mx-auto">
+          <div className="w-56 mx-auto md:ml-auto md:-mr-36">
+            <button
+              onClick={() => handleSignInAsMerchant()}
+              className=" border-2 font-bold py-2 px-4 w-full rounded hover:opacity-80"
+            >
+              Sign in as Merchant
+            </button>
+          </div>
           <img src="/loginlogo.png" className="mx-auto mb-4" />
           <h2 className="text-lg font-semibold text-center">
             DISCOVER THE GAME THAT GIVES REAL-WORLD VALUE
@@ -57,14 +65,6 @@ export default function Login() {
             </button>
           </div>
 
-          <div className="mt-8">
-            <button
-              onClick={() => handleSignInAsMerchant()}
-              className=" border-2 font-bold py-2 px-4 w-full rounded hover:opacity-80"
-            >
-              Sign in as Merchant
-            </button>
-          </div>
         </div>
       </div>
     </div>

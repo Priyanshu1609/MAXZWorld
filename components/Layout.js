@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 function Layout({ children }) {
   const router = useRouter();
-  console.log(router.pathname)
+
 
 
   return (

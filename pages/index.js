@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter();
   const { isAuthenticated, Moralis } = useMoralis();
-
+  console.log(router.pathname)
   const Card = ({ title, num }) => (
     <div className="border-[1px] w-56 h-36 rounded-lg shadow-lg p-4 text-center mt-4">
       <p className="text-lg mt-4">{title}</p>
@@ -11,6 +13,10 @@ export default function Home() {
     </div>
   )
   let wallet;
+  if (!isAuthenticated) {
+    router.push('/user/login')
+  }
+
 
   return (
     <div>
