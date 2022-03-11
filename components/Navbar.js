@@ -31,20 +31,27 @@ const Navbar = () => {
       <div className="shadow">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-2">
-            <div>
-              <p className="cursor-pointer font-bold" onClick={handleClickHome}>MAXZWorld</p>
+            <div className="flex">
+              <img
+                onClick={handleClickHome}
+                src="/logotextblack.png"
+                className="w-10 h-10 text-yellow-600 "
+                viewBox="0 0 24 24"
+              />
+              <p className="cursor-pointer text-xl font-bold ml-2 my-auto">MAXZWorld</p>
             </div>
 
             {/* NavBarItems */}
-             <div className="hidden sm:flex sm:items-center">
+
+            {isAuthenticated && <div className="hidden sm:flex sm:items-center">
               <p className="text-black text-sm font-semibold hover:opacity-80 mr-4 cursor-pointer" onClick={handleClickHome} >Home</p>
               <p className="text-black text-sm font-semibold hover:opacity-80 mr-4 cursor-pointer" >Explore</p>
               <p className="text-black text-sm font-semibold hover:opacity-80 mr-4 cursor-pointer" onClick={handleClickProfile} >Profile</p>
-            </div> 
+            </div>}
 
             {/* Auth Buttons */}
             <div className="hidden sm:flex sm:items-center space-x-2">
-              {isAuthenticated ? (
+              {isAuthenticated && (
                 <>
                   <AuthButton
                     onClick={handleClickAdmin}
@@ -54,14 +61,6 @@ const Navbar = () => {
                     text="Sign out"
                     onClick={handleClickSignOut}
                     disabled={isLoggingOut}
-                  />
-                </>
-              ) : (
-                <>
-                  <AuthButton
-                    text="Connect Wallet"
-                    onClick={handleClickSignin}
-                    disabled={isAuthenticating}
                   />
                 </>
               )}

@@ -1,15 +1,23 @@
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
+import { useRouter } from 'next/router'
+import Login from "./user/login";
 
 export default function Home() {
-  const { isAuthenticated } = useMoralis();
-
+  const router = useRouter();
+  const { isAuthenticated, Moralis } = useMoralis();
+  console.log(router.pathname)
   const Card = ({ title, num }) => (
     <div className="border-[1px] w-56 h-36 rounded-lg shadow-lg p-4 text-center mt-4">
       <p className="text-lg mt-4">{title}</p>
       <p className={`text-2xl font-bold mt-41 text-blue-500 mt-4`}>{num}</p>
     </div>
   )
+  let wallet;
+  if (!isAuthenticated) {
+    return <Login />
+  }
+
 
   return (
     <div>
@@ -22,13 +30,13 @@ export default function Home() {
       </Head>
       {isAuthenticated ? <div className="w-full h-screen overflow-y-scroll scrollbar-hide">
         <div className="flex justify-between mx-4 mt-8">
-          <p className="font-bold text-3xl">Hello [Company Name]!</p>
+          <p className="font-bold text-3xl">Hello [{wallet}]!</p>
         </div>
         <div className="sm:mx-8 md:mx-16 lg:mx-32 my-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <Card title="Total NFTs Minted" num="2236" />
           <Card title="Total NFTs Reedemed" num="364" />
           <Card title="Total NFTs Footfalls" num="156" />
-          <Card title="No. of Played NFTs" num="546"/>
+          <Card title="No. of Played NFTs" num="546" />
           <Card title="NFTs Sold by users" num="
           45" />
           <Card title="NFTs swapped by users" num="4569" />
