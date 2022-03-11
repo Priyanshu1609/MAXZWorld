@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
 import { useRouter } from 'next/router'
+import Login from "./user/login";
 
 export default function Home() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function Home() {
   )
   let wallet;
   if (!isAuthenticated) {
-    router.push('/user/login')
+    return <Login />
   }
 
 
