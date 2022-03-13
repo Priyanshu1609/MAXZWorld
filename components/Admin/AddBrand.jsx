@@ -82,10 +82,10 @@ function AddBrand(){
                 <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Blockchain</label>
                 <select  onChange={changeHandler}  defaultValue="0" name="category" id="category" className="bg-gray-50 border border-gray-300 text-sm rounded-lg  block w-full p-2.5">
                     <option value="0" hidden="">Please select a chain</option>
-                    <option value="1">Food</option>
-                    <option value="2">Automobiles</option>
-                    <option value="3">Retail</option>
-                    <option value="4">Wholesale</option>
+                    <option value="1">Ethereum</option>
+                    <option value="2">Polygon</option>
+                    <option value="3">Solana</option>
+                    <option value="4">Tezos</option>
                 </select>
                 {/* <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="user_avatar">Upload Logo</label>
                 <input onChange={handleChange} className="block w-full text-sm rounded-lg border bg-gray-50 border-gray-300 cursor-pointer " aria-describedby="user_avatar_help" id="user_avatar" type="file"/>
