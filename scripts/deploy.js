@@ -14,8 +14,8 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory();
-  const greeter = await Greeter.deploy();
+  const Greeter = await hre.ethers.getContractFactory("DragonToken");
+  const greeter = await Greeter.deploy("DragonToken", 'DT');
 
   await greeter.deployed();
 
