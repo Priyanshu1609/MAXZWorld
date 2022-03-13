@@ -108,7 +108,7 @@ function AddCampaign() {
     }
     return (
         <div>
-            {open && <Alert />}
+            {open && <Alert setOpen={setOpen}/>}
             {isAuthenticated ? (
                 <form onSubmit={handleSubmission} className={`h-auto ${!open && 'mt-20'} p-10 border-2 m-5 rounded-lg inline-block min-w-xl`}>
                     <h1 className="text-center font-bold">NFT Rewards</h1>
