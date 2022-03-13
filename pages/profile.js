@@ -22,7 +22,7 @@ export default function Profile() {
                             Name</label>
                         <input className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded  px-4 block w-full appearance-none py-1" type="text" />
                     </div>
-                    <label className="block  text-sm mt-4 font-bold ">Building Address</label>
+                    <label className="block  text-sm mt-4 font-bold ">Business Address</label>
                     <div className="mt-">
                         <label className="block  text-xs font-bold ">Country</label>
                         <input className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded  px-4 block w-full appearance-none py-1" type="text" />

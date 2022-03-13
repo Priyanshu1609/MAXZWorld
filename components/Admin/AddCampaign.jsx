@@ -98,7 +98,7 @@ function AddCampaign(){
         <div>
             {isAuthenticated ? (
             <form onSubmit={handleSubmission} className="h-auto p-10 border-2 m-5 rounded-lg inline-block">
-                <h1 className="text-center font-bold">Create a new Ad Campaign</h1>
+                <h1 className="text-center font-bold">NFT Rewards</h1>
                     <div className="mb-6">
                         <label htmlFor="campaignName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Campaign Name</label>
                         <input onChange={changeHandler} type="text" name="campaignName" id="campaignName" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="Winter Sale 2022" required="" />

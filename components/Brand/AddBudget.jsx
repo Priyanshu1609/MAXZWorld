@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMoralis } from "react-moralis";
 
-function AddBrand(){
+function AddBudjet(){
     const { Moralis, isAuthenticated } = useMoralis();
     const [inputs, setInputs] = useState({});
     const [isSelected, setIsSelected] = useState(false);
@@ -61,7 +61,7 @@ function AddBrand(){
         setInputs(values => ({...values, [name]: value}))
 	};
     return (
-    <div>
+    <div className='max-w-xl '>
         {isAuthenticated ? (
             <form onSubmit={createBrand} className="h-auto p-10 border-2 m-5 rounded-lg inline-block">
                 <h1 className="text-center font-bold">Campaign Details</h1>
@@ -99,4 +99,4 @@ function AddBrand(){
     </div>
     );
 }
-export default AddBrand;
+export default AddBudjet;
