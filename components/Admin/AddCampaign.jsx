@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useMoralis } from "react-moralis";
+import Alert from '../Alert';
 
 function AddCampaign() {
     const [selectedFile, setSelectedFile] = useState("");
@@ -8,6 +9,7 @@ function AddCampaign() {
     const { isAuthenticated, Moralis } = useMoralis();
     const [nftPic, setNftPic] = useState(null);
     const [isSelectedNftPic, setIsSelectedNftPic] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const changeHandler = (event) => {
         const name = event.target.name;
@@ -32,6 +34,7 @@ function AddCampaign() {
     };
 
     const handleSubmission = async (event) => {
+        setOpen(true);
         event.preventDefault();
         await getBase64(selectedFile, async (document) => {
             const moralisFile = new Moralis.File(selectedFile.name, { base64: document });
@@ -58,6 +61,7 @@ function AddCampaign() {
                     console.log('Failed to create new object, with error code: ' + error.message);
                 });
         });
+        setOpen(false)
     };
     const createReward = async (campaignId) => {
         await getBase64(nftPic, async (document) => {
@@ -104,8 +108,9 @@ function AddCampaign() {
     }
     return (
         <div>
+            {!open && <Alert/>}
             {isAuthenticated ? (
-                <form onSubmit={handleSubmission} className="h-auto p-10 border-2 m-5 rounded-lg inline-block min-w-xl">
+                <form onSubmit={handleSubmission} className={`h-auto ${!open && 'mt-20'} p-10 border-2 m-5 rounded-lg inline-block min-w-xl`}>
                     <h1 className="text-center font-bold">NFT Rewards</h1>
                     <div className="mb-6">
                         <label htmlFor="campaignName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NFT Name</label>
@@ -149,7 +154,7 @@ function AddCampaign() {
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="user_avatar">Upload NFT thumbnail</label>
                     <input onChange={selectedNFTPic} className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
                     {isSelectedNftPic ? (
-                        <img src={URL.createObjectURL(nftPic)} alt="" />
+                        <img src={URL.createObjectURL(nftPic)} alt="" className='w-64 h-44' />
                     ) : (
                         <p>Please Select an NFT pic for preview</p>
                     )}
