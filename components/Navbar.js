@@ -1,6 +1,6 @@
 // Import React Moralis Hooks
 import { useMoralis } from "react-moralis";
-
+import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -15,9 +15,13 @@ const Navbar = () => {
 
   const router = useRouter();
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleClickSignin = () => router.push("/user/login");
 
   const handleClickAdmin = () => router.push("/admin");
+  
+  const handleClickBrand = () => router.push("/branding");
 
   const handleClickHome = () => router.push("/");
 
@@ -27,7 +31,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 ">
       <div className="shadow">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-2">
@@ -53,10 +57,39 @@ const Navbar = () => {
             <div className="hidden sm:flex sm:items-center space-x-2">
               {isAuthenticated && (
                 <>
-                  <AuthButton
-                    onClick={handleClickAdmin}
-                    text="Create campaign"
-                  />
+                  <div className="">
+                    {/* <AuthButton
+                      onClick={handleClickAdmin}
+                      text="Create campaign"
+                    /> */}
+                    <div className="flex justify-center ">
+                      <div className="relative">
+                        <button
+                          className="text-black text-sm flex font-semibold border px-4 py-2 rounded-lg hover:text-black hover:border-black"
+                          onClick={e => setIsOpen(!isOpen)}
+                        >
+                          Create campaign
+                          {isOpen ? <AiFillCaretUp className="h-5 w-5 ml-2"/> : <AiFillCaretDown className="h-5 w-5 ml-2"/>}
+                        </button>
+
+                        {isOpen && <div className="absolute right-0 mt-3 ease-in-out transition-transform duration-200">
+                          <button
+                            className="text-black bg-white text-sm w-36 mt-1 font-semibold border  px-4 py-2 rounded-lg hover:text-black hover:border-black"
+                            onClick={handleClickAdmin}
+                          >
+                            NFT Rewards
+                          </button><button
+                            className="text-black g-white  text-sm mt-1 w-36 font-semibold border px-4 py-2 rounded-lg hover:text-black hover:border-black"
+                            onClick={handleClickBrand}
+                          >
+                            Branding
+                          </button>
+                        </div>}
+
+                      </div>
+
+                    </div>
+                  </div>
                   <AuthButton
                     text="Sign out"
                     onClick={handleClickSignOut}
