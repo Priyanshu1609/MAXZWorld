@@ -34,7 +34,7 @@ function AddCampaign() {
     };
 
     const handleSubmission = async (event) => {
-        setOpen(true);
+
         event.preventDefault();
         await getBase64(selectedFile, async (document) => {
             const moralisFile = new Moralis.File(selectedFile.name, { base64: document });
@@ -55,13 +55,13 @@ function AddCampaign() {
                     createReward(campaign.id);
                     // Execute any logic that should take place after the object is saved.
                     console.log('New campaign created with objectId: ' + campaign.id);
+                    setOpen(true);
                 }, (error) => {
                     // Execute any logic that should take place if the save fails.
                     // error is a Moralis.Error with an error code and message.
                     console.log('Failed to create new object, with error code: ' + error.message);
                 });
         });
-        setOpen(false)
     };
     const createReward = async (campaignId) => {
         await getBase64(nftPic, async (document) => {
@@ -89,7 +89,7 @@ function AddCampaign() {
             //     });
             const moralisFile = new Moralis.File(nftPic.name, { base64: document });
             console.log('Moralis file', moralisFile);
-          
+
             await moralisFile.saveIPFS();
 
             console.log(moralisFile.ipfs(), moralisFile.hash())
@@ -108,7 +108,7 @@ function AddCampaign() {
     }
     return (
         <div>
-            {!open && <Alert/>}
+            {open && <Alert />}
             {isAuthenticated ? (
                 <form onSubmit={handleSubmission} className={`h-auto ${!open && 'mt-20'} p-10 border-2 m-5 rounded-lg inline-block min-w-xl`}>
                     <h1 className="text-center font-bold">NFT Rewards</h1>
