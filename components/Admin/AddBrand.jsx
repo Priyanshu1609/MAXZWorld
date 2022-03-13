@@ -17,12 +17,13 @@ function AddBrand(){
                 console.log("Error: ", error);
             });
             const brand = new Moralis.Object("Brand");
-            brand.set("Name", inputs.brandName);
-            brand.set("Status","Active");
-            brand.set("contractAddress", inputs.contractAddress);
-            brand.set("logo", moralisFile);
-            brand.set("category", inputs.category);
-            await brand.save()
+            // brand.set("Name", inputs.brandName);
+            // brand.set("Status","Active");
+            // brand.set("contractAddress", inputs.contractAddress);
+            // brand.set("logo", moralisFile);
+            // brand.set("category", inputs.category);
+            await brand.saveIPFS()
+            // await brand.save()
             .then((brand) => {
                 // Execute any logic that should take place after the object is saved.
                 console.log('New campaign created with objectId: ' + brand.id);
@@ -31,6 +32,9 @@ function AddBrand(){
                 // error is a Moralis.Error with an error code and message.
                 console.log('Failed to create new object, with error code: ' + error.message);
             });
+
+            console.log(brand.ipfs(), brand.hash())
+
         });
     }
     const handleChange = (event) => {
