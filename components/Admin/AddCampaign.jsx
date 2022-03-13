@@ -105,10 +105,10 @@ function AddCampaign() {
     return (
         <div>
             {isAuthenticated ? (
-                <form onSubmit={handleSubmission} className="h-auto p-10 border-2 m-5 rounded-lg inline-block">
+                <form onSubmit={handleSubmission} className="h-auto p-10 border-2 m-5 rounded-lg inline-block min-w-xl">
                     <h1 className="text-center font-bold">NFT Rewards</h1>
                     <div className="mb-6">
-                        <label htmlFor="campaignName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Campaign Name</label>
+                        <label htmlFor="campaignName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NFT Name</label>
                         <input onChange={changeHandler} type="text" name="campaignName" id="campaignName" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="Winter Sale 2022" required="" />
                     </div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" htmlFor="user_avatar">Upload Image</label>
@@ -127,20 +127,20 @@ function AddCampaign() {
                     ) : (
                         <p>Select a file to show details</p>
                     )}
-                    <label htmlFor="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select a Brand</label>
+                    <label htmlFor="brand" className="block mb-2 text-sm font-medium mt-4 text-gray-900 dark:text-gray-400">Select type</label>
                     <select onChange={changeHandler} name="brandID" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                        <option value="0" hidden="">Select a Brand</option>
-                        <option value="1">McDonalds</option>
-                        <option value="2">KFC</option>
+                        <option value="0" hidden="">Select a type</option>
+                        <option value="1">Discount</option>
+                        <option value="2">Normal</option>
                     </select>
                     <div className="mb-6">
-                        <label htmlFor="rewardName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Voucher Name</label>
-                        <input onChange={changeHandler} type="text" name="rewardName" id="rewardName" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="Free Voucher NFT" required="" />
+                        <label htmlFor="rewardName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 mt-4">Value</label>
+                        <input onChange={changeHandler} type="text" name="rewardName" id="rewardName" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="1000 USDC" required="" />
                     </div>
 
                     <div className="mb-6">
-                        <label htmlFor="rewardQty" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Voucher Quantity</label>
-                        <input onChange={changeHandler} type="text" name="rewardQty" id="rewardQty" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="Voucher Quantity" required="" />
+                        <label htmlFor="rewardQty" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Minimum spend required</label>
+                        <input onChange={changeHandler} type="text" name="rewardQty" id="rewardQty" className="shadow-sm bg-gray-50 block w-full p-2.5 border text-sm rounded-lg outline-none" placeholder="10 USDC" required="" />
                     </div>
                     <div className="mb-6">
                         <label htmlFor="maxQty" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Maximum Quantity</label>
