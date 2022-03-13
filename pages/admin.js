@@ -11,7 +11,7 @@ function admin() {
                 <div className=''>
                     <AddBrand />
                 </div>
-                <div className=''>
+                <div className='w-2/5'>
                     <AddCampaign />
                 </div>
             </div>
