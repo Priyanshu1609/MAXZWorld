@@ -61,7 +61,7 @@ export default function Login() {
               onClick={() => signInWithMetamask()}
               className=" font-bold py-2 px-4 border-2 w-full rounded hover:opacity-80"
             >
-              Sign in with Metamask
+              Enter the Game
             </button>
           </div>
 
